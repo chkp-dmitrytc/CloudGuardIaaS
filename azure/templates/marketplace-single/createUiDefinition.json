@@ -1164,7 +1164,7 @@
       "sourceImageVhdUri": "[coalesce(steps('chkp').sourceImageVhdUri, 'noCustomUri')]",
       "customMetrics": "[steps('chkp').customMetrics]",
       "adminShell": "[steps('chkp').adminShell]",
-      "smart1CloudToken": "[steps('chkp').Token]"
+      "smart1CloudToken": "[steps('chkp').smart1CloudToken]"
     }
   }
 }
