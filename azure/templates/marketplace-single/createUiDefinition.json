@@ -1068,12 +1068,7 @@
             "name": "Smart1CloudToken",
             "type": "Microsoft.Common.TextBox",
             "label": "Smart-1 Cloud Token",
-            "toolTip": "Smart-1 Cloud authentication token",
-            "constraints": {
-              "required": true,
-              "regex": "^\\S{220}$",
-              "validationMessage": "a valid token has 220 characters"
-            }
+            "toolTip": "Smart-1 Cloud authentication token"
           }
         ]
       },
