@@ -1065,7 +1065,7 @@
           },
           {
             "visible": "[equals(steps('chkp').alloweSmart1CloudConnection, 'yes')]",
-            "name": "Smart1CloudToken",
+            "name": "smart1CloudToken",
             "type": "Microsoft.Common.TextBox",
             "label": "Smart-1 Cloud Token",
             "toolTip": "Smart-1 Cloud authentication token"
