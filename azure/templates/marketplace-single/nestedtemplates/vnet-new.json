@@ -57,18 +57,6 @@
       "metadata": {
         "description": "The first avaialable address on the 2nd subnet"
       }
-    },
-    "tagsByResource": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "deployNsg": {
-      "type": "bool",
-      "defaultValue": false
-    },
-    "NewNsgName": {
-      "type": "string",
-      "defaultValue": ""
     }
   },
   "variables": {},
@@ -96,8 +84,7 @@
             }
           }
         ]
-      },
-      "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.Network/routeTables'), parameters('tagsByResource')['Microsoft.Network/routeTables'], json('{}')) ]"
+      }
     },
     {
       "type": "Microsoft.Network/routeTables",
@@ -115,8 +102,7 @@
             }
           }
         ]
-      },
-      "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.Network/routeTables'), parameters('tagsByResource')['Microsoft.Network/routeTables'], json('{}')) ]"
+      }
     },
     {
       "type": "Microsoft.Network/virtualNetworks",
@@ -153,43 +139,12 @@
             }
           }
         ]
-      },
-      "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.Network/virtualNetworks'), parameters('tagsByResource')['Microsoft.Network/virtualNetworks'], json('{}')) ]"
-    },
-    {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "condition": "[parameters('deployNsg')]",
-      "apiVersion": "2020-06-01",
-      "location": "[parameters('location')]",
-      "name": "[parameters('NewNsgName')]",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "AllowAllInBound",
-            "properties": {
-              "description": "Allow all inbound connections",
-              "protocol": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": "100",
-              "direction": "Inbound"
-            }
-          }
-        ]
-      },
-      "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.Network/networkSecurityGroups'), parameters('tagsByResource')['Microsoft.Network/networkSecurityGroups'], json('{}')) ]"
+      }
     }
   ],
   "outputs": {
     "vnetId": {
       "value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-      "type": "string"
-    },
-    "vnetAddressPrefix": {
-      "value": "[parameters('virtualNetworkAddressPrefix')]",
       "type": "string"
     }
   }
