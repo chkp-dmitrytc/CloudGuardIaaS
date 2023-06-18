@@ -170,6 +170,10 @@
     }
   ],
   "outputs": {
+    "vnetAddressPrefixes": {
+      "value": "[parameters('virtualNetworkAddressPrefixes')]",
+      "type": "array"
+    },
     "vnetId": {
       "value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
       "type": "string"
